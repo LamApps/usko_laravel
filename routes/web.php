@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BuyController;
+use App\Http\Controllers\SellController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,10 @@ use App\Http\Controllers\BuyController;
 //     return view('welcome');
 // });
 
-Route::get('/', [HomeController::class, "index"]);
+Route::get('/', [HomeController::class, "index"])->name("home");
 
-Route::get('buying', [BuyController::class, "index"]);
+Route::get('buying', [BuyController::class, "index"])->name("buying");
+Route::get('selling', [SellController::class, "index"])->name("selling");
 // Route::get('logout', [LoginController::class, "logout"]);
 
 // Route::get('login', [shipmentController::class, 'login'])->name("login");

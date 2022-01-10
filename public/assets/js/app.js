@@ -139,31 +139,31 @@ $(function () {
 
 
     // Counter Activation
-    function isCounterElementVisible($elementToBeChecked)
-    {
-        var TopView = $(window).scrollTop();
-        var BotView = TopView + $(window).height();
-        var TopElement = $elementToBeChecked.offset().top;
-        var BotElement = TopElement + $elementToBeChecked.height();
-        return ((BotElement <= BotView) && (TopElement >= TopView));
-    }
-    $(window).on('scroll', function () {
-        $( ".counter" ).each(function() {
-            var isOnView = isCounterElementVisible($(this));
-            if(isOnView && !$(this).hasClass('Starting')){
-                $(this).addClass('Starting');
-                $(this).prop('Counter',0).animate({
-                    Counter: $(this).text()
-                }, {
-                    duration: 3000,
-                    easing: 'swing',
-                    step: function (now) {
-                        $(this).text(Math.ceil(now));
-                    }
-                });
-            }
-        });
-    });
+    // function isCounterElementVisible($elementToBeChecked)
+    // {
+    //     var TopView = $(window).scrollTop();
+    //     var BotView = TopView + $(window).height();
+    //     var TopElement = $elementToBeChecked.offset().top;
+    //     var BotElement = TopElement + $elementToBeChecked.height();
+    //     return ((BotElement <= BotView) && (TopElement >= TopView));
+    // }
+    // $(window).on('scroll', function () {
+    //     $( ".counter" ).each(function() {
+    //         var isOnView = isCounterElementVisible($(this));
+    //         if(isOnView && !$(this).hasClass('Starting')){
+    //             $(this).addClass('Starting');
+    //             $(this).prop('Counter',0).animate({
+    //                 Counter: $(this).text()
+    //             }, {
+    //                 duration: 3000,
+    //                 easing: 'swing',
+    //                 step: function (now) {
+    //                     $(this).text(Math.ceil(now));
+    //                 }
+    //             });
+    //         }
+    //     });
+    // });
 
     // Dropzone initialization
     Dropzone.autoDiscover = false;
@@ -287,67 +287,23 @@ $(function () {
     });
 
     // Slick Sliders
-    $('.slick-normal').each(function () {
-        var slider = $(this);
-        $(this).slick({
-            infinite: true,
-            dots: false,
-            arrows: false,
-            centerMode: true,
-            centerPadding: '0'
-        });
+    // $('.slick-normal').each(function () {
+    //     var slider = $(this);
+    //     $(this).slick({
+    //         infinite: true,
+    //         dots: false,
+    //         arrows: false,
+    //         centerMode: true,
+    //         centerPadding: '0'
+    //     });
 
-        $(this).closest('.slick-slider-area').find('.slick-prev').on("click", function () {
-            slider.slick('slickPrev');
-        });
-        $(this).closest('.slick-slider-area').find('.slick-next').on("click", function () {
-            slider.slick('slickNext');
-        });
-    });
-
-    $('.slick-fullwidth').slick({
-        centerMode: true,
-        centerPadding: '15%',
-        slidesToShow: 3,
-        dots: true,
-        arrows: false,
-        responsive: [
-            {
-                breakpoint: 1441,
-                settings: {centerPadding: '10%', slidesToShow: 3}
-            },
-            {
-                breakpoint: 1025,
-                settings: {
-                    centerPadding: '10px', slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {centerPadding: '10px', slidesToShow: 1}
-            }
-        ]
-    });
-
-
-    // Slick Sliders
-    $('.slick-carousel').each(function () {
-        var slider = $(this);
-        $(this).slick({
-            infinite: true,
-            dots: false,
-            arrows: false,
-            centerMode: true,
-            centerPadding: '0'
-        });
-
-        $(this).closest('.slick-slider-area').find('.slick-prev').on("click", function () {
-            slider.slick('slickPrev');
-        });
-        $(this).closest('.slick-slider-area').find('.slick-next').on("click", function () {
-            slider.slick('slickNext');
-        });
-    });
+    //     $(this).closest('.slick-slider-area').find('.slick-prev').on("click", function () {
+    //         slider.slick('slickPrev');
+    //     });
+    //     $(this).closest('.slick-slider-area').find('.slick-next').on("click", function () {
+    //         slider.slick('slickNext');
+    //     });
+    // });
 
 
     // Modal activation
@@ -422,30 +378,30 @@ $(function () {
 
 
     // Countdown activation
-    $( function() {
-        // Add background image
-        //$.backstretch('../img/nature.jpg');
-        var endDate = "December  27, 2019 15:03:25";
-        $('.countdown.simple').countdown({ date: endDate });
-        $('.countdown.styled').countdown({
-            date: endDate,
-            render: function(data) {
-                $(this.el).html("<div>" + this.leadingZeros(data.days, 3) + " <span>Days</span></div><div>" + this.leadingZeros(data.hours, 2) + " <span>Hours</span></div><div>" + this.leadingZeros(data.min, 2) + " <span>Minutes</span></div><div>" + this.leadingZeros(data.sec, 2) + " <span>Seconds</span></div>");
-            }
-        });
-        $('.countdown.callback').countdown({
-            date: +(new Date) + 10000,
-            render: function(data) {
-                $(this.el).text(this.leadingZeros(data.sec, 2) + " sec");
-            },
-            onEnd: function() {
-                $(this.el).addClass('ended');
-            }
-        }).on("click", function() {
-            $(this).removeClass('ended').data('countdown').update(+(new Date) + 10000).start();
-        });
+    // $( function() {
+    //     // Add background image
+    //     //$.backstretch('../img/nature.jpg');
+    //     var endDate = "December  27, 2019 15:03:25";
+    //     $('.countdown.simple').countdown({ date: endDate });
+    //     $('.countdown.styled').countdown({
+    //         date: endDate,
+    //         render: function(data) {
+    //             $(this.el).html("<div>" + this.leadingZeros(data.days, 3) + " <span>Days</span></div><div>" + this.leadingZeros(data.hours, 2) + " <span>Hours</span></div><div>" + this.leadingZeros(data.min, 2) + " <span>Minutes</span></div><div>" + this.leadingZeros(data.sec, 2) + " <span>Seconds</span></div>");
+    //         }
+    //     });
+    //     $('.countdown.callback').countdown({
+    //         date: +(new Date) + 10000,
+    //         render: function(data) {
+    //             $(this.el).text(this.leadingZeros(data.sec, 2) + " sec");
+    //         },
+    //         onEnd: function() {
+    //             $(this.el).addClass('ended');
+    //         }
+    //     }).on("click", function() {
+    //         $(this).removeClass('ended').data('countdown').update(+(new Date) + 10000).start();
+    //     });
 
-    });
+    // });
 
 
     // Multi-item carousel activation
