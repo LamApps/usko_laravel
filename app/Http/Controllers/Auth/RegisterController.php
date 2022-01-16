@@ -33,7 +33,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::shipment_login;
+    // protected $redirectTo = RouteServiceProvider::shipment_login;
 
     /**
      * Create a new controller instance.
@@ -55,8 +55,7 @@ class RegisterController extends Controller
     {
 
         return Validator::make($data, [
-            'firstname' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed']
         ]);
@@ -73,25 +72,15 @@ class RegisterController extends Controller
         $user = User::where('email', '=', $data['email'])->first();
         if (!$user) {
             $user = new User();
-            $user->firstname = $data['firstname'];
-            $user->lastname = $data['lastname'];
+            $user->name = $data['name'];
             $user->email = $data['email'];
             $user->password = Hash::make($data['password']);
-            $user->pw = $data['password'];
-            $user->api_key = genApiKey();
             $user->save();
-
-            $data2 = collect();
-            $data2->customer_name = $user->firstname." ".$user->lastname;
-            $data2->email = $data['email'];
-            $data2->password = $user->pw;
-            $data2->api_key = $user->api_key;
-
-            if (App::environment('production')) {
-                Mail::to($data['email'], "FDA")->queue(new userRegister("User register confirmed – US FDA Prior Notice Automatic System", $data2));
-            }else{
-                Mail::to("kabsila@gmail.com", "FDA")->queue(new userRegister("User register confirmed – US FDA Prior Notice Automatic System", $data2));
-            }
+            // if (App::environment('production')) {
+            //     Mail::to($data['email'], "FDA")->queue(new userRegister("User register confirmed – US FDA Prior Notice Automatic System", $data2));
+            // }else{
+            //     Mail::to("kabsila@gmail.com", "FDA")->queue(new userRegister("User register confirmed – US FDA Prior Notice Automatic System", $data2));
+            // }
         }
 
         return $user;

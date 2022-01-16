@@ -3,9 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BuyController;
 use App\Http\Controllers\SellController;
+use App\Http\Controllers\AgentController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +27,22 @@ use App\Http\Controllers\SellController;
 // });
 
 Route::get('/', [HomeController::class, "index"])->name("home");
+Route::get('/home', [HomeController::class, "index"]);
 
 Route::get('buying', [BuyController::class, "index"])->name("buying");
+
 Route::get('selling', [SellController::class, "index"])->name("selling");
-// Route::get('logout', [LoginController::class, "logout"]);
+
+Route::get('agents', [AgentController::class, "index"])->name("agents");
+Route::get('agent-detail', [AgentController::class, "agentDetail"]);
+Route::get('about', [CompanyController::class, "index"])->name("about");
+Route::get('blog', [CompanyController::class, "blog"])->name("blog");
+Route::get('blog-detail', [CompanyController::class, "blogDetail"])->name("blog");
+Route::get('join-us', [CompanyController::class, "join"])->name("join");
+Route::get('become-realtor', [CompanyController::class, "become"])->name("become");
+Route::get('contact', [ContactController::class, "index"])->name("contact");
+Route::post('contact', [ContactController::class, "save_contact"]);
+Route::get('logout', [LoginController::class, "logout"]);
 
 // Route::get('login', [shipmentController::class, 'login'])->name("login");
 // Route::get('register', [shipmentController::class, 'register'])->name("register");

@@ -68,7 +68,7 @@
                                 </ul> --}}
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="/agents">
                                     AGENTS
                                 </a>
                                 {{-- <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -144,71 +144,18 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     COMPANY
                                 </a>
-                                {{-- <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Agent List</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="agent-list.html">Agent List 1</a></li>
-                                            <li><a class="dropdown-item" href="agent-list-2.html">Agent List 2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Agent Grid</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="agent-grid.html">Agent Grid 1</a></li>
-                                            <li><a class="dropdown-item" href="agent-grid-2.html">Agent Grid 2</a></li>
-                                            <li><a class="dropdown-item" href="agent-grid-3.html">Agent Grid 3</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a class="dropdown-item" href="agent-detail.html">Agent Detail</a></li>
-                                </ul> --}}
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="/about">ABOUT</a></li>
+                                    <li><a class="dropdown-item" href="/blog">BLOG</a></li>
+                                    <li><a class="dropdown-item" href="/join-us">JOIN USKO REALTY</a></li>
+                                    <li><a class="dropdown-item" href="/become-realtor">BECOME A REALTOR</a></li>
+                                </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="/contact">
                                     CONTACT
                                 </a>
-                                {{-- <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Columns</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="blog-columns-2col.html">2 Columns</a></li>
-                                            <li><a class="dropdown-item" href="blog-columns-3col.html">3 Columns</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Classic</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="blog-classic-sidebar-right.html">Right Sidebar</a></li>
-                                            <li><a class="dropdown-item" href="blog-classic-sidebar-left.html">Left Sidebar</a></li>
-                                            <li><a class="dropdown-item" href="blog-classic-fullwidth.html">FullWidth</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Blog Details</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="blog-single-sidebar-right.html">Right Sidebar</a></li>
-                                            <li><a class="dropdown-item" href="blog-single-sidebar-left.html">Left Sidebar</a></li>
-                                            <li><a class="dropdown-item" href="blog-single-fullwidth.html">Fullwidth</a></li>
-                                        </ul>
-                                    </li>
-                                </ul> --}}
                             </li>
-                            {{-- <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Shop
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                                    <a class="dropdown-item" href="shop-list.html">Shop List</a>
-                                    <a class="dropdown-item" href="shop-cart.html">Shop Cart</a>
-                                    <a class="dropdown-item" href="shop-checkout.html">Shop Checkout</a>
-                                    <a class="dropdown-item" href="shop-single.html">Shop Details</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Contact
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                                    <a class="dropdown-item" href="contact-1.html">Contact 1</a>
-                                    <a class="dropdown-item" href="contact-2.html">Contact 2</a>
-                                    <a class="dropdown-item" href="contact-3.html">Contact 3</a>
-                                </div>
-                            </li> --}}
                             <li class="nav-item sb2">
                                 <a  href="submit-property.html" class="submit-btn">
                                     Meet Our Agents

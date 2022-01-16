@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-    <title>XERO - Real Estate HTML Template</title>
+    <title>{{ config('app.name', 'USKO Realty') }} - Buying</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <!-- External CSS libraries -->
@@ -11,9 +11,6 @@
     <link type="text/css" rel="stylesheet" href="assets/css/dropzone.css">
     <link type="text/css" rel="stylesheet" href="assets/css/rangeslider.css">
     <link type="text/css" rel="stylesheet" href="assets/css/animate.min.css">
-    <link type="text/css" rel="stylesheet" href="assets/css/leaflet.css">
-    <link type="text/css" rel="stylesheet" href="assets/css/slick.css">
-    <link type="text/css" rel="stylesheet" href="assets/css/slick-theme.css">
     <link type="text/css" rel="stylesheet" href="assets/css/map.css">
     <link type="text/css" rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.css">
     <link type="text/css" rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
@@ -22,42 +19,24 @@
     <!-- Favicon icon -->
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" >
 
-    <!-- Google fonts -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
-
     <!-- Custom Stylesheet -->
     <link type="text/css" rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" id="style_sheet" href="assets/css/skins/red.css">
-
+    <style>
+        .main-header .logo-2 {
+            padding: 5px 0;
+        }
+        .map {
+            width: 100%;
+        }
+        #contactMap {
+            height: calc( 100vh - 93px );
+        }
+    </style>
 </head>
 <body id="top" class="index-body">
 
-<!-- Top header start -->
-<header class="top-header top-header-bg" id="top-header-2">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6 col-md-7 col-sm-7">
-                <div class="list-inline">
-                    <a href="tel:1-7X0-555-8X22"><i class="fa fa-phone"></i>+0477 85X6 552</a>
-                    <a href="#" class="mr-0"><i class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i>20/F Green Road, Dhanmondi,</a>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-5 col-sm-5">
-                <ul class="top-social-media pull-right">
-                    <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#" class="google"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#" class="rss"><i class="fa fa-rss"></i></a></li>
-                    <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                    <li>
-                        <a href="login.html" class="sign-in"><i class="fa fa-sign-in"></i> Login or Register</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- Top header end -->
+
 
 <!-- main header start -->
 <header class="main-header do-sticky" id="main-header-2">
@@ -65,19 +44,19 @@
         <div class="row">
             <div class="col-12">
                 <nav class="navbar navbar-expand-lg navbar-light rounded">
-                    <a class="navbar-brand logo-2" href="index.html">
+                    <a class="navbar-brand logo-2" href="/">
                         <img src="assets/img/logos/black-logo.png" alt="logo">
                     </a>
                     <button class="navbar-toggler" type="button" id="drawer">
                         <span class="fa fa-bars"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbar">
-                        <ul class="navbar-nav  justify-content-center">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Index
+                        <ul class="navbar-nav justify-content-end ml-auto">
+                            <li class="nav-item dropdown active">
+                                <a class="nav-link dropdown-toggle" href="/buying">
+                                    BUYING
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                {{-- <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li><a class="dropdown-item" href="index.html">Index 1</a></li>
                                     <li><a class="dropdown-item" href="index-2.html">Index 2</a></li>
                                     <li><a class="dropdown-item" href="index-3.html">Index 3</a></li>
@@ -87,13 +66,16 @@
                                     <li><a class="dropdown-item" href="index-7.html">Index 7</a></li>
                                     <li><a class="dropdown-item" href="index-8.html">Index 8 (Map)</a></li>
                                     <li><a class="dropdown-item" href="index-9.html">Index 9 (Video)</a></li>
-                                </ul>
+                                </ul> --}}
                             </li>
-                            <li class="nav-item dropdown active">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Properties
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="/selling">
+                                    SELLING
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                {{-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    SELLING
+                                </a> --}}
+                                {{-- <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">List Layout</a>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="properties-list-rightside.html">Right Sidebar</a></li>
@@ -124,13 +106,13 @@
                                             <li><a class="dropdown-item" href="properties-details-3.html">Property Detail 3</a></li>
                                         </ul>
                                     </li>
-                                </ul>
+                                </ul> --}}
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Pages
+                                <a class="nav-link dropdown-toggle"  href="/agents">
+                                    AGENTS
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                {{-- <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">My Account</a>
                                         <ul class="dropdown-menu">
                                             <li>
@@ -178,6 +160,7 @@
                                             <li><a class="dropdown-item" href="faq-2.html">Faq 2</a></li>
                                         </ul>
                                     </li>
+
                                     <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Typography</a>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="typography.html">Typography 1</a></li>
@@ -190,62 +173,31 @@
                                             <li><a class="dropdown-item" href="pages-404-2.html">404 Error 2</a></li>
                                         </ul>
                                     </li>
+
                                     <li><a class="dropdown-item" href="properties-comparison.html">Properties Comparison</a></li>
                                     <li><a class="dropdown-item" href="search-brand.html">Search Brand</a></li>
                                     <li><a class="dropdown-item" href="elements.html">Elements</a></li>
                                     <li><a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
                                     <li><a class="dropdown-item" href="login.html">Login/Register</a></li>
-                                </ul>
+                                </ul> --}}
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Agents
+                                    COMPANY
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Agent List</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="agent-list.html">Agent List 1</a></li>
-                                            <li><a class="dropdown-item" href="agent-list-2.html">Agent List 2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Agent Grid</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="agent-grid.html">Agent Grid 1</a></li>
-                                            <li><a class="dropdown-item" href="agent-grid-2.html">Agent Grid 2</a></li>
-                                            <li><a class="dropdown-item" href="agent-grid-3.html">Agent Grid 3</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a class="dropdown-item" href="agent-detail.html">Agent Detail</a></li>
+                                    <li><a class="dropdown-item" href="/about">ABOUT</a></li>
+                                    <li><a class="dropdown-item" href="/blog">BLOG</a></li>
+                                    <li><a class="dropdown-item" href="/join-us">JOIN USKO REALTY</a></li>
+                                    <li><a class="dropdown-item" href="/become-realtor">BECOME A REALTOR</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Blog
+                                <a class="nav-link dropdown-toggle" href="/contact">
+                                    CONTACT
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Columns</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="blog-columns-2col.html">2 Columns</a></li>
-                                            <li><a class="dropdown-item" href="blog-columns-3col.html">3 Columns</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Classic</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="blog-classic-sidebar-right.html">Right Sidebar</a></li>
-                                            <li><a class="dropdown-item" href="blog-classic-sidebar-left.html">Left Sidebar</a></li>
-                                            <li><a class="dropdown-item" href="blog-classic-fullwidth.html">FullWidth</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Blog Details</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="blog-single-sidebar-right.html">Right Sidebar</a></li>
-                                            <li><a class="dropdown-item" href="blog-single-sidebar-left.html">Left Sidebar</a></li>
-                                            <li><a class="dropdown-item" href="blog-single-fullwidth.html">Fullwidth</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
                             </li>
-                            <li class="nav-item dropdown">
+                            {{-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Shop
                                 </a>
@@ -265,12 +217,10 @@
                                     <a class="dropdown-item" href="contact-2.html">Contact 2</a>
                                     <a class="dropdown-item" href="contact-3.html">Contact 3</a>
                                 </div>
-                            </li>
-                        </ul>
-                        <ul class="nav navbar-nav ml-auto justify-content-end">
-                            <li class="nav-item">
+                            </li> --}}
+                            <li class="nav-item sb2">
                                 <a  href="submit-property.html" class="submit-btn">
-                                    Submit Property
+                                    Meet Our Agents
                                 </a>
                             </li>
                         </ul>
@@ -531,7 +481,9 @@
     <div class="row">
         <div class="col-lg-4 col-xl-6">
             <div class="row">
-                <div id="map"></div>
+                <div class="map">
+                    <div id="contactMap" class="contact-map"></div>
+                </div>
             </div>
         </div>
         <div class="col-lg-8 col-xl-6 map-content-sidebar map-content-left">
@@ -830,28 +782,11 @@
 <script src="assets/js/jquery.magnific-popup.min.js"></script>
 <script src="assets/js/jquery.filterizr.js"></script>
 <script src="assets/js/wow.min.js"></script>
-<script src="assets/js/backstretch.js"></script>
-<script src="assets/js/jquery.countdown.js"></script>
 <script src="assets/js/jquery.scrollUp.js"></script>
-<script src="assets/js/particles.min.js"></script>
-<script src="assets/js/typed.min.js"></script>
 <script src="assets/js/dropzone.js"></script>
-<script src="assets/js/jquery.mb.YTPlayer.js"></script>
-<script src="assets/js/leaflet.js"></script>
-<script src="assets/js/leaflet-providers.js"></script>
-<script src="assets/js/leaflet.markercluster.js"></script>
-<script src="assets/js/slick.min.js"></script>
-<script src="assets/js/maps.js"></script>
-<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4omYJlOaP814WDcCG8eubXcbhB-44Uac"></script>
-<script src="assets/js/ie-emulation-modes-warning.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <!-- Custom JS Script -->
 <script  src="assets/js/app.js"></script>
-<script>
-    var latitude = 51.541216;
-    var longitude = -0.095678;
-    var providerName = 'Hydda.Full';
-    generateMap(latitude, longitude, providerName, 'grid_layout');
-</script>
 </body>
 </html>

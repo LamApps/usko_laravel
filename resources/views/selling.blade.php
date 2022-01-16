@@ -5,9 +5,6 @@
 @section('meta-description', 'Real Estate Agency in Sacramento')
 
 @section('vendor-style')
-<link type="text/css" rel="stylesheet" href="{{ asset('assets/css/jquery.selectBox.css') }}">
-<link type="text/css" rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
-<link type="text/css" rel="stylesheet" href="{{ asset('assets/css/rangeslider.css') }}">
 @endsection
 
 @section('page-style')
@@ -17,24 +14,101 @@
 <div class="sub-banner">
     <div class="container">
         <div class="breadcrumb-area">
-            <h1 class="mb-3">What's My Home Worth?</h1>
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-6">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Enter Street Address" aria-label="Enter Street Address" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-md btn-color" type="button">GET ESTIMATE</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h1 class="mb-3">A smooth home sale starts here</h1>
+            <h5 class="text-white">We built USKO to get you a better deal</h5>
         </div>
     </div>
 </div>
 @endsection
 
 @section('content')
-<div class="faq content-area-7">
+
+<div class="estimate content-area-8">
+    <div class="container">
+        <div class="main-title">
+            <h1>What's my home worth? </h1>
+            <p>Establishing the right asking price is critical to the home selling process.</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Enter Street Address" aria-label="Enter Street Address" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-md btn-color" type="button">Get Estimate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="contact content-area-8">
+    <div class="container">
+        <div class="main-title">
+            <h1>Talk to a local USKO Agent</h1>
+            <p>We’re here to make your home sale or purchase go right. There’s no obligation.</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <img class="img-fluid" src="{{asset('assets/img/meet_agent.jpg')}}">
+            </div>
+            <div class="col-lg-6 align-self-center">
+                <div class="form">
+                    <form action="/contact" method="POST">
+                        @csrf
+                        <input type="hidden" name="subject" value="selling">
+                        <div class="row">
+                            @if ($errors->any())
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="alert alert-danger mb-3" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    @foreach ($errors->all() as $error) 
+                                    <p class="mb-0">{{ $error }}</p>
+                                    @endforeach
+                                </div>
+                            </div>
+                            @endif
+                            @if (\Session::has('success'))
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="alert alert-success mb-3" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                {!! \Session::get('success') !!}
+                                </div>
+                            </div>
+                            @endif
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group name">
+                                    <input type="text" name="name" class="form-control" placeholder="Name" value="{{ old('name') }}" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group email">
+                                    <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group phone">
+                                    <input type="text" name="phone_number" class="form-control" value="{{ old('phone_number') }}" placeholder="Phone Number (10 digits number)" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group message">
+                                    <textarea class="form-control" name="message" placeholder="Write message" required>{{ old('message') }}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="send-btn">
+                                    <button type="submit" class="btn btn-4">Send</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="contact content-area-7">
     <div class="container">
         <div class="main-title">
             <h1>Frequently Asked Questions </h1>
@@ -124,11 +198,6 @@
 @endsection
 
 @section('vendor-script')
-<script src="{{ asset('assets/js/jquery.selectBox.js') }}"></script>
-<script src="{{ asset('assets/js/rangeslider.js') }}"></script>
-<script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ asset('assets/js/wow.min.js') }}"></script>
-<script src="{{ asset('assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
 @endsection
 
 @section('page-script')

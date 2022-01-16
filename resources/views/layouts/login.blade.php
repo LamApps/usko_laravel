@@ -26,18 +26,8 @@
     @yield('page-style')
 </head>
 <body id="top" class="index-body">
-@include('layouts.topHeader')
-
-@include('layouts.mainHeader')
-
-@include('layouts.sidebar')
-
-@yield('sub-banner')
 
 @yield('content')
-
-@include('layouts.footer')
-
 
 <!-- External JS libraries -->
 <script src="{{ asset('assets/js/jquery-2.2.0.min.js') }}"></script>

@@ -64,7 +64,7 @@ class LoginController extends Controller
                 return back();
             }
         }
-        return redirect()->route('index');
+        return redirect()->route('home');
     }
 
     public function redirectToGoogle()
@@ -146,14 +146,14 @@ class LoginController extends Controller
         Auth::login($user);
     }
 
-    public function authenticated($request , $user){
-        $referer = request()->headers->get('referer');
-        if($referer == route("checkTicketStatus")){
-            return redirect()->route('codeList') ;
-        }else{
-            return redirect()->route('shipment-login');
-        }
-    }
+    // public function authenticated($request , $user){
+    //     $referer = request()->headers->get('referer');
+    //     if($referer == route("checkTicketStatus")){
+    //         return redirect()->route('codeList') ;
+    //     }else{
+    //         return redirect()->route('shipment-login');
+    //     }
+    // }
 
     function split_name($name) {
         $name = trim($name);
@@ -164,7 +164,7 @@ class LoginController extends Controller
 
     public function logout(Request $request) {
         Auth::logout();
-        return back();
+        return redirect()->route('home');
     }
 
     public function forgetPassword(){

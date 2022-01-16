@@ -10,12 +10,21 @@
             </div>
             <div class="col-lg-3 col-md-3 col-sm-5">
                 <ul class="top-social-media pull-right">
+                @if(Auth::check())
                     <li>
-                        <a href="login.html" class="sign-in"><i class="fa fa-sign-in"></i> Login </a>
+                        <a href="/profile" class="sign-in"><i class="fa fa-user"></i> Profile </a>
                     </li>
                     <li>
-                        <a href="login.html" class="sign-in"><i class="fa fa-user"></i> Register</a>
+                        <a href="/logout" class="sign-in"><i class="fa fa-sign-out"></i> Logout</a>
                     </li>
+                @else
+                    <li>
+                        <a href="/login" class="sign-in"><i class="fa fa-sign-in"></i> Login </a>
+                    </li>
+                    <li>
+                        <a href="/register" class="sign-in"><i class="fa fa-user"></i> Register</a>
+                    </li>
+                @endif
                 </ul>
             </div>
         </div>
